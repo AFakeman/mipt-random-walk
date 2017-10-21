@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
   total_lifetime = 0;
   reached_b = 0;
 
-#pragma omp parallel for reduction(+ : total_lifetime, reached_b)
+#pragma omp parallel for reduction(+ : total_lifetime, reached_b) num_threads(P)
   for (i = 0; i < N; i++) {
     size_t lifetime = 0;
     // Using time() as a seed is a bad idea
