@@ -45,11 +45,11 @@ int main(int argc, char* argv[]) {
       reached_b += 1;
     total_lifetime += lifetime;
   }
-  printf("%ld\n", total_lifetime);
   run_time = omp_get_wtime() - run_time;
   b_probability = reached_b / ((double)N);
   avg_lifetime = total_lifetime / ((double)N);
   stats = fopen("stats.txt", "w");
+  printf("%lf\n", run_time);
   fprintf(stats, "%lf %lf %lfs %d %d %d %lu %lf %lu\n", b_probability,
           avg_lifetime, run_time, a, b, x, N, p, P);
   fclose(stats);
